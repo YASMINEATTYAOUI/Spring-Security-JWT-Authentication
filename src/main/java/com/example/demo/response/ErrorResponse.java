@@ -8,12 +8,9 @@ import org.springframework.http.HttpStatus;
 
 @Data
 @Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponse {
     HttpStatus httpStatus;
     String message;
-    public ErrorResponse(HttpStatus httpStatus, String message) {
-        this.httpStatus = httpStatus;
-        this.message = message;
-    }
 }

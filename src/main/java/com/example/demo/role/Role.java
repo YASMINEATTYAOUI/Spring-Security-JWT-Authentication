@@ -2,9 +2,7 @@ package com.example.demo.role;
 
 import com.example.demo.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -15,8 +13,10 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class Role {
     @Id
@@ -38,8 +38,5 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<Privilege> privileges = new ArrayList<>();
 **/
-    public Role orElse() {
-        return null;
-    }
 }
 

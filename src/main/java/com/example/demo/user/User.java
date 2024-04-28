@@ -2,10 +2,7 @@ package com.example.demo.user;
 
 import com.example.demo.role.Role;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 public class User {
 
@@ -27,8 +25,10 @@ public class User {
         private Long id;
 
         @Column(nullable = false, unique = true)
-        private  String userName;
+        private  String username;
+        @Column(nullable = false)
         private String firstName;
+        @Column(nullable = false)
         private String lastName;
         @Column(nullable = false, unique = true)
         private Integer phoneNumber;
@@ -57,6 +57,4 @@ public class User {
 */
         public User(String email, String password, Collection<GrantedAuthority> grantedAuthorities) {
         }
-
-
 }
